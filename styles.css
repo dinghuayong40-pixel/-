@@ -91,6 +91,7 @@ canvas {
   grid-template-rows: repeat(2, 54px);
   gap: 8px 10px;
   align-items: center;
+  justify-items: center;
   margin-top: 16px;
   width: 100%;
   position: relative;
@@ -138,12 +139,14 @@ button {
 }
 
 .action-btn {
+  width: 72px;
   min-height: 44px;
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
   position: relative;
   z-index: 1;
+  justify-self: center;
   font-size: 24px;
   font-weight: 800;
   padding: 0;
