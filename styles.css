@@ -148,14 +148,6 @@ button {
   border-radius: 28px;
 }
 
-.action-pad {
-  display: grid;
-  place-items: center;
-  min-height: 186px;
-  padding: 12px;
-  border-radius: 32px;
-}
-
 .action-btn {
   min-height: 44px;
   touch-action: manipulation;
@@ -184,6 +176,8 @@ button {
 }
 
 .action-btn-rotate {
+  justify-self: center;
+  align-self: center;
   width: 84px;
   min-height: 84px;
   border-radius: 50%;
@@ -277,12 +271,6 @@ button:active {
     border-radius: 24px;
   }
 
-  .action-pad {
-    min-height: 154px;
-    padding: 10px;
-    border-radius: 28px;
-  }
-
   .action-btn {
     min-height: 40px;
     font-size: 22px;
@@ -322,11 +310,6 @@ button:active {
 
   .move-pad {
     grid-template-rows: repeat(3, 40px);
-    padding: 8px;
-  }
-
-  .action-pad {
-    min-height: 142px;
     padding: 8px;
   }
 
