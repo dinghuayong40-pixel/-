@@ -155,6 +155,7 @@ let isPaused = false;
 let gameOver = false;
 let holdIntervalId = 0;
 let lastPointerActionAt = 0;
+let lastGeneratedType = null;
 
 function createBoard() {
   return Array.from({ length: ROWS }, () => Array(COLS).fill(null));
@@ -162,7 +163,15 @@ function createBoard() {
 
 function randomPiece() {
   const types = Object.keys(SHAPES);
-  const type = types[Math.floor(Math.random() * types.length)];
+  let type = types[Math.floor(Math.random() * types.length)];
+
+  if (types.length > 1) {
+    while (type === lastGeneratedType) {
+      type = types[Math.floor(Math.random() * types.length)];
+    }
+  }
+
+  lastGeneratedType = type;
   const shape = SHAPES[type];
   const rotation = 0;
   const matrix = shape[rotation];
@@ -498,6 +507,7 @@ function startGame() {
   isRunning = true;
   isPaused = false;
   gameOver = false;
+  lastGeneratedType = null;
   nextPiece = randomPiece();
   updateStats();
   setStatus("游戏进行中，祝你打出 Tetris。");
