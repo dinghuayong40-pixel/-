@@ -1,0 +1,16 @@
+{
+  "name": "传统俄罗斯方块",
+  "short_name": "俄罗斯方块",
+  "description": "一个支持桌面和手机游玩的传统俄罗斯方块小游戏。",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

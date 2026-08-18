@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个支持桌面和手机游玩的传统俄罗斯方块小游戏。">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>传统俄罗斯方块</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="board-panel">
+      <h1>俄罗斯方块</h1>
+      <canvas id="game" width="300" height="600" aria-label="俄罗斯方块游戏棋盘"></canvas>
+      <div class="touch-controls" aria-label="手机触控按钮">
+        <button class="action-btn" type="button" data-action="left">左移</button>
+        <button class="action-btn" type="button" data-action="rotate">旋转</button>
+        <button class="action-btn" type="button" data-action="right">右移</button>
+        <button class="action-btn" type="button" data-action="down">下移</button>
+        <button class="action-btn action-btn-wide" type="button" data-action="drop">落底</button>
+      </div>
+      <div class="controls">
+        <button id="start-btn" type="button">开始 / 重新开始</button>
+        <button id="pause-btn" type="button">暂停</button>
+      </div>
+      <p class="hint">电脑：← → 移动，↑ 旋转，↓ 加速下落，空格瞬间落底，P 暂停。手机：使用上方触控按钮。</p>
+    </section>
+
+    <aside class="info-panel">
+      <div class="card">
+        <h2>状态</h2>
+        <p><span>分数</span><strong id="score">0</strong></p>
+        <p><span>消行</span><strong id="lines">0</strong></p>
+        <p><span>等级</span><strong id="level">1</strong></p>
+      </div>
+
+      <div class="card">
+        <h2>下一块</h2>
+        <canvas id="next" width="120" height="120" aria-label="下一块预览"></canvas>
+      </div>
+
+      <div class="card">
+        <h2>提示</h2>
+        <p id="status">点击“开始”进入游戏。</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
