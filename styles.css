@@ -87,19 +87,20 @@ canvas {
 
 .touch-controls {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) 112px;
-  grid-template-rows: repeat(3, 54px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 54px);
   gap: 8px 10px;
   align-items: center;
   margin-top: 16px;
   width: 100%;
   position: relative;
+  padding: 12px;
 }
 
 .touch-controls::before {
   content: "";
   position: absolute;
-  inset: 0 122px 0 0;
+  inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 28px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
@@ -151,7 +152,6 @@ button {
 .action-btn-left {
   grid-column: 1;
   grid-row: 2;
-  margin-left: 12px;
 }
 
 .action-btn-down {
@@ -162,20 +162,13 @@ button {
 .action-btn-right {
   grid-column: 3;
   grid-row: 2;
-  margin-right: 12px;
 }
 
 .action-btn-rotate {
-  grid-column: 4;
-  grid-row: 1 / span 3;
-  justify-self: center;
-  align-self: center;
-  width: 84px;
-  min-height: 84px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.5), rgba(99, 102, 241, 0.32));
-  font-size: 16px;
-  letter-spacing: 0.08em;
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 14px;
+  letter-spacing: 0.06em;
 }
 
 .control-btn {
@@ -189,10 +182,6 @@ button {
 button:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.18);
-}
-
-.action-btn-rotate:hover {
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.62), rgba(99, 102, 241, 0.42));
 }
 
 button:active {
@@ -209,7 +198,8 @@ button:active {
   }
 
   .touch-controls {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) 104px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 54px);
     gap: 8px 10px;
   }
 
@@ -251,14 +241,14 @@ button:active {
   }
 
   .touch-controls {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) 96px;
-    grid-template-rows: repeat(3, 44px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 44px);
     gap: 6px 8px;
     margin-top: 12px;
+    padding: 10px;
   }
 
   .touch-controls::before {
-    inset: 0 104px 0 0;
     border-radius: 24px;
   }
 
@@ -268,8 +258,6 @@ button:active {
   }
 
   .action-btn-rotate {
-    width: 72px;
-    min-height: 72px;
     font-size: 14px;
   }
 
@@ -295,18 +283,10 @@ button:active {
   }
 
   .touch-controls {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) 90px;
-    grid-template-rows: repeat(3, 40px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 40px);
     gap: 6px 8px;
-  }
-
-  .touch-controls::before {
-    inset: 0 98px 0 0;
-  }
-
-  .action-btn-rotate {
-    width: 66px;
-    min-height: 66px;
+    padding: 8px;
   }
 
   .control-btn {
