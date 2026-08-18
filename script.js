@@ -155,23 +155,24 @@ let isPaused = false;
 let gameOver = false;
 let holdIntervalId = 0;
 let lastPointerActionAt = 0;
-let lastGeneratedType = null;
+let pieceBag = [];
 
 function createBoard() {
   return Array.from({ length: ROWS }, () => Array(COLS).fill(null));
 }
 
-function randomPiece() {
-  const types = Object.keys(SHAPES);
-  let type = types[Math.floor(Math.random() * types.length)];
+function shuffleBag(types) {
+  const bag = [...types];
 
-  if (types.length > 1) {
-    while (type === lastGeneratedType) {
-      type = types[Math.floor(Math.random() * types.length)];
-    }
+  for (let index = bag.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [bag[index], bag[swapIndex]] = [bag[swapIndex], bag[index]];
   }
 
-  lastGeneratedType = type;
+  return bag;
+}
+
+function createPiece(type) {
   const shape = SHAPES[type];
   const rotation = 0;
   const matrix = shape[rotation];
@@ -184,6 +185,16 @@ function randomPiece() {
     x: Math.floor((COLS - matrix[0].length) / 2),
     y: matrix.length === 4 ? -1 : 0,
   };
+}
+
+function randomPiece() {
+  const types = Object.keys(SHAPES);
+
+  if (pieceBag.length === 0) {
+    pieceBag = shuffleBag(types);
+  }
+
+  return createPiece(pieceBag.pop());
 }
 
 function getDropInterval() {
@@ -507,7 +518,7 @@ function startGame() {
   isRunning = true;
   isPaused = false;
   gameOver = false;
-  lastGeneratedType = null;
+  pieceBag = [];
   nextPiece = randomPiece();
   updateStats();
   setStatus("游戏进行中，祝你打出 Tetris。");
