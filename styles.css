@@ -74,11 +74,12 @@ body {
 canvas {
   display: block;
   background: rgba(2, 6, 23, 0.68);
-  border-radius: 20px;
+  border-radius: 0;
 }
 
 #game {
-  width: min(300px, calc(100vw - 72px));
+  width: 100%;
+  max-width: 100%;
   height: auto;
   margin-inline: auto;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -236,11 +237,7 @@ button:active {
   }
 
   #game {
-    width: min(
-      300px,
-      calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 48px),
-      calc((100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 270px) / 2)
-    );
+    width: 100%;
   }
 
   .touch-controls {
@@ -278,11 +275,7 @@ button:active {
 
 @media (max-width: 390px) and (orientation: portrait) {
   #game {
-    width: min(
-      286px,
-      calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 40px),
-      calc((100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 254px) / 2)
-    );
+    width: 100%;
   }
 
   .touch-controls {
