@@ -131,7 +131,7 @@ const scoreTable = [0, 100, 300, 500, 800];
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const nextCanvas = document.getElementById("next");
-const nextCtx = nextCanvas.getContext("2d");
+const nextCtx = nextCanvas ? nextCanvas.getContext("2d") : null;
 
 const scoreEl = document.getElementById("score");
 const linesEl = document.getElementById("lines");
@@ -182,13 +182,21 @@ function getDropInterval() {
 }
 
 function setStatus(message) {
-  statusEl.textContent = message;
+  if (statusEl) {
+    statusEl.textContent = message;
+  }
 }
 
 function updateStats() {
-  scoreEl.textContent = String(score);
-  linesEl.textContent = String(lines);
-  levelEl.textContent = String(level);
+  if (scoreEl) {
+    scoreEl.textContent = String(score);
+  }
+  if (linesEl) {
+    linesEl.textContent = String(lines);
+  }
+  if (levelEl) {
+    levelEl.textContent = String(level);
+  }
 }
 
 function drawCell(targetCtx, x, y, size, color) {
@@ -233,6 +241,10 @@ function drawBoard() {
 }
 
 function drawNext() {
+  if (!nextCanvas || !nextCtx) {
+    return;
+  }
+
   nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
   if (!nextPiece) {
     return;
