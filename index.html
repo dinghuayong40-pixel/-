@@ -17,10 +17,14 @@
     <section class="board-panel">
       <canvas id="game" width="300" height="600" aria-label="俄罗斯方块游戏棋盘"></canvas>
       <div class="touch-controls" aria-label="手机触控按钮">
-        <button class="action-btn" type="button" data-action="left">左移</button>
-        <button class="action-btn" type="button" data-action="rotate">旋转</button>
-        <button class="action-btn" type="button" data-action="right">右移</button>
-        <button class="action-btn" type="button" data-action="down">下移</button>
+        <div class="pad move-pad" aria-label="方向键">
+          <button class="action-btn action-btn-left" type="button" data-action="left">←</button>
+          <button class="action-btn action-btn-down" type="button" data-action="down">↓</button>
+          <button class="action-btn action-btn-right" type="button" data-action="right">→</button>
+        </div>
+        <div class="pad action-pad" aria-label="动作键">
+          <button class="action-btn action-btn-rotate" type="button" data-action="rotate">旋转</button>
+        </div>
       </div>
       <div class="controls">
         <button id="start-btn" class="control-btn control-btn-primary" type="button">开始</button>
